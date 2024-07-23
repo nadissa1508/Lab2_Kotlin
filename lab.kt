@@ -5,6 +5,9 @@
  * Laboratorio No. 2 
  */
 
+data class Person(val name: String, val age: Int, val gender: String)
+data class Student(val name: String, val age: Int, val gender: String, val studentId: String)
+
 //Función calcular promedio
 fun calcularPromedio(numeros: List<Int>): Double{
     return (numeros.reduce { acc, num -> acc + num }).toDouble() / numeros.size   
@@ -21,6 +24,11 @@ fun verificarPalindromo(palabra: String): Boolean = palabra.lowercase() == palab
 //Función para el inciso 5
 fun performOperation(num1: Int, num2: Int, operation: (Int, Int) -> Int): Int{
     return operation(num1, num2)
+}
+
+//Función para el inciso 6 - mapeo de objeto person a objeto estudiante
+fun transformPerson(persona: Person): Student{
+    return Student(persona.name , persona.age, persona.gender, "23764")
 }
 
 
@@ -56,5 +64,16 @@ fun main(){
     
     resultado2 = performOperation(100, 5, {x: Int, y: Int -> x / y})
     println("\nFunción performOperation: $resultado2") 
+
+    //Inciso 6 - person y student
+    println("\nLista de estudiantes: ")
+    val personas = listOf(
+        Person("Nadissa", 21, "Femenino"),
+        Person("Marco", 22, "Masculino"),
+        Person("Ana", 23, "Femenino")
+    )
+
+    val estudiantes = personas.map {person -> transformPerson(person)}
+    estudiantes.forEach { student -> println("El estudiante ${student.name} tiene ${student.age} años") }
 
 }
