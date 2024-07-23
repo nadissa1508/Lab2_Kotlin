@@ -5,8 +5,8 @@
  * Laboratorio No. 2 
  */
 
- //Función calcular promedio
- fun calcularPromedio(numeros: List<Int>): Double{
+//Función calcular promedio
+fun calcularPromedio(numeros: List<Int>): Double{
     return (numeros.reduce { acc, num -> acc + num }).toDouble() / numeros.size   
 }
 
@@ -18,6 +18,10 @@ fun filtrarNumeros(numeros: List<Int>): List<Int>{
 //Función que detecta un palindromo
 fun verificarPalindromo(palabra: String): Boolean = palabra.lowercase() == palabra.lowercase().reversed()
 
+//Función para el inciso 5
+fun performOperation(num1: Int, num2: Int, operation: (Int, Int) -> Int): Int{
+    return operation(num1, num2)
+}
 
 
 fun main(){
@@ -45,5 +49,12 @@ fun main(){
     var nombres = listOf("Nadissa", "Sarah", "Siona", "Nani")
     val nombresSaludo = nombres.map { "¡Hola, ${it}!" }
     nombresSaludo.forEach { println(it) }
+
+    //Inciso 5 - lambda como parámetro
+    var resultado2 = performOperation(8, 5, {x: Int, y: Int -> x * y})
+    println("\nFunción performOperation: $resultado2") 
+    
+    resultado2 = performOperation(100, 5, {x: Int, y: Int -> x / y})
+    println("\nFunción performOperation: $resultado2") 
 
 }
