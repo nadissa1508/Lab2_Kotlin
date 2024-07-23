@@ -40,5 +40,10 @@ fun main(){
     esPalindromo = verificarPalindromo(palabra)
     println("\n$palabra es palindromo¨? : $esPalindromo")
 
+    //Inciso 4 - uso de la función map
+    println("\nUso de la función map:")
+    var nombres = listOf("Nadissa", "Sarah", "Siona", "Nani")
+    val nombresSaludo = nombres.map { "¡Hola, ${it}!" }
+    nombresSaludo.forEach { println(it) }
 
 }
