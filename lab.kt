@@ -16,20 +16,7 @@ fun filtrarNumeros(numeros: List<Int>): List<Int>{
 }
 
 //Función que detecta un palindromo
-fun verificarPalindromo(palabra: String): Boolean{
-    palabra.toLowerCase()
-    var size = palabra.length
-    var cont = 0
-    for(i in size-1 downTo 0){
-        if(palabra[i] != palabra[cont]){
-            return false
-            break
-        }
-        cont++
-    }
-    return true
-
-}
+fun verificarPalindromo(palabra: String): Boolean = palabra.lowercase() == palabra.lowercase().reversed()
 
 
 
